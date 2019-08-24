@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../study/study.iml" filepath="$PROJECT_DIR$/../study/study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../studymapper/study-mapper.iml" filepath="$PROJECT_DIR$/../studymapper/study-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../studymodel/study-model.iml" filepath="$PROJECT_DIR$/../studymodel/study-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-parent.iml" filepath="$PROJECT_DIR$/study-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../studyutil/study-util.iml" filepath="$PROJECT_DIR$/../studyutil/study-util.iml" />
+    </modules>
+  </component>
+</project>
