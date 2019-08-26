@@ -32,7 +32,7 @@
                              type="XMLMAPPER">            <!--是否允许子包，即targetPackage.schemaName.tableName-->
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>         <!--            tableName:数据库表名            domainObjectName:实体类名            enableCountByExample（默认true）：MyBatis3Simple为false，                指定是否生成动态查询总条数语句（用于分页的总条数查询）；            enableUpdateByExample：（默认true）：MyBatis3Simple为false，                指定是否生成动态修改语句（只修改对象中不为空的属性）；            enableDeleteByExample：enableDeleteByExample（默认true）：                MyBatis3Simple为false，指定是否生成动态删除语句；            enableSelectByExample：enableSelectByExample（默认true）：                MyBatis3Simple为false，指定是否生成动态查询语句；            selectByExampleQueryId：            enableInsert（默认true）：指定是否生成insert语句；            enableSelectByPrimaryKey（默认true）：指定是否生成按照主键查询对象的语句（就是getById或get）；            enableUpdateByPrimaryKey（默认true）：指定是否生成按照主键修改对象的语句（即update)；            enableDeleteByPrimaryKey（默认true）：指定是否生成按照主键删除对象的语句（即delete）；            modelType：参考context元素的defaultModelType，相当于覆盖；        -->
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>

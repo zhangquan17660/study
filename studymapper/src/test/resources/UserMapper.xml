@@ -29,9 +29,6 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectUserByName" parameterType="java.lang.String" resultType="BaseResultMap" >
-      select * from user where 1=1 and username like %'${username}'%
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated
