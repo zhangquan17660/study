@@ -1,5 +1,6 @@
 package com.test.mapper;
 
+import com.test.dao.UserMapper;
 import com.test.po.UserCustom;
 import com.test.po.UserVo;
 import com.zq.model.User;
@@ -9,9 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
-import com.test.dao.UserMapper;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserMapperTest {
@@ -64,6 +65,20 @@ public class UserMapperTest {
         user.setId(10);
         user.setUsername("张三");
         user = userMapper.findUserByUser(user);
+        System.out.println(user);
+
+    }
+
+    @Test
+    public void selectUserByIds() throws Exception{
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<Integer> ids = new ArrayList<>();
+        ids.add(1);
+        ids.add(10);
+        ids.add(16);
+
+        List<UserCustom> user = userMapper.findUserByIds( ids);
         System.out.println(user);
 
     }

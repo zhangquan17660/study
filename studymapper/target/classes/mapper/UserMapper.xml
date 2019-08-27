@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.test.dao.UserMapper" >
+<mapper namespace="com.zq.dao.UserDao" >
   <resultMap id="BaseResultMap" type="com.zq.model.User" >
     <!--
       WARNING - @mbggenerated
@@ -19,25 +19,6 @@
     -->
     id, username, birthday, sex, address
   </sql>
-
-  <sql id="queryUser">
-    <if test="userCustom != null">
-      <if test="userCustom.id != null">
-        and user.id = #{userCustom.id}
-      </if>
-      <if test="userCustom.username">
-        and user.username = #{userCustom.username}
-      </if>
-    </if>
-  </sql>
-
-  <sql id="findUserByIds">
-    <if test="ids != null and ids">
-        <foreach collection="ids" item="id" open="and id in (" close=")" separator=",">
-            #{id}
-        </foreach>
-    </if>
-  </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated
@@ -48,39 +29,8 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
-
-
-  <select id="findUserByUser" parameterType="com.zq.model.User" resultType="com.zq.model.User">
-    select id, username, birthday , sex, address  from user
-    <where>
-      <if test="id != null ">
-         and user.id = #{id}
-      </if>
-      <if test="username != null">
-        and user.username = #{username}
-      </if>
-    </where>
-
-  </select>
-
-  <select id="findUserByVo" parameterType="com.test.po.UserVo" resultType="com.test.po.UserCustom">
-
-    select id , username , birthday , sex , address from user
-    <where>
-        <include   refid="queryUser" ></include>
-    </where>
-  </select>
-
-  <select id="findUserByIds" parameterType="list" resultType="com.test.po.UserCustom">
-        select * from user
-            <where>
-              <if test="ids != null and ids">
-                <foreach collection="ids" item="id" open="and id in (" close=")" separator=",">
-                  #{id}
-                </foreach>
-              </if>
-            </where>
-
+  <select id="selectUserByName" parameterType="java.lang.String" resultType="BaseResultMap" >
+      select * from user where 1=1 and username like %'${username}'%
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
