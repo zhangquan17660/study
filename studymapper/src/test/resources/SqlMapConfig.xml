@@ -45,7 +45,7 @@
 	</environments>
 	<!-- 加载 映射文件 -->
 	<mappers>
-		<mapper resource="UserMapper.xml"/>
+		<mapper resource="mapper/UserMapper.xml"/>
 
 		<!--通过resource方法一次加载一个映射文件 -->
 		<!-- <mapper resource="mapper/UserMapper.xml"/> -->
@@ -54,7 +54,7 @@
 		遵循一些规范：需要将mapper接口类名和mapper.xml映射文件名称保持一致，且在一个目录 中
 		上边规范的前提是：使用的是mapper代理方法
 		 -->
-		<!-- <mapper class="cn.itcast.mybatis.mapper.UserMapper"/> -->
+		 <!--<mapper class="cn.itcast.mybatis.mapper.UserMapper"/> -->
 
 		<!-- 批量加载mapper
 		指定mapper接口的包名，mybatis自动扫描包下边所有mapper接口进行加载

@@ -1,4 +1,4 @@
-package com.zq;
+package com.test.mapper;
 
 import com.zq.model.User;
 import java.io.IOException;
