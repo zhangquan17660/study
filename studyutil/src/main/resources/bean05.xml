@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--把对象交给spring管理-->
+    <!--spring对bean的管理细节
+        spring创建bean的三种方式
+        bean对象的作用范围
+        bean的生命周期
+    -->
+    <!--使用默认构造函数创建
+        在spring中使用bean标签，配以id和class后，且没有其他标签属性，采用的是默认构造函数创建对象
+        使用普通工厂中的方法创建对象（使用某个类中的方法创建对象）
+        使用静态工厂中的静态方法创建对象（某个静态类中的静态方法创建对象）
+
+       -->
+    <bean id="iservice" class="com.zq.day05.service.impl.Service">
+        <property name="age" value="18"></property>
+        <property name="birthday" ref="now"></property>
+        <property name="name" value="zq"></property>
+    </bean>
+    <bean id="now" class="java.util.Date"></bean>
+    <bean id="logger" class="com.zq.day05.BeanFactory.Logger"></bean>
+   <aop:config>
+        <aop:aspect id="loggerAspect" ref="logger">
+            <!--<aop:before method="logger" pointcut-ref="pt1"></aop:before>-->
+            <aop:around method="aroundLogger" pointcut-ref="pt1"></aop:around>
+            <aop:pointcut id="pt1" expression="execution(void com.zq.day05.service.Iservice.*(..))"></aop:pointcut>
+        </aop:aspect>
+    </aop:config>
+    
+</beans>
