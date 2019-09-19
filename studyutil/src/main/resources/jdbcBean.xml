@@ -27,10 +27,6 @@
         <property name="dataSource" ref="driverManagerDataSource"></property>
     </bean>
     <!--配置事物通知-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager"></tx:advice>
-    <!--配置Aop-->
-    <aop:config>
-        <aop:pointcut id="pt2" expression="execution(void com.zq.jdbc.service.IAccountService.*(..))"></aop:pointcut>
-        <aop:advisor  advice-ref="txAdvice" pointcut="com.zq.Ioczhujie.service.impl.Logger.pt1()"></aop:advisor>
-    </aop:config>
+    <!--开启事物注解支持-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 </beans>
